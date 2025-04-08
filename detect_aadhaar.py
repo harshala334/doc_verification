@@ -2,64 +2,52 @@ import os
 import cv2
 import numpy as np
 import tensorflow as tf
+from PIL import Image
 from object_detection.utils import label_map_util, visualization_utils as vis_util
 
 # Load Model and Label Map
-MODEL_DIR = "models/inference_graph"
+MODEL_DIR = "models/inference_graph/ssd_mobilenet_v2_fpnlite_320x320_coco17_tpu-8/saved_model"
 LABEL_PATH = "label_map.pbtxt"
 
 def load_model():
-    PATH_TO_CKPT = os.path.join(MODEL_DIR, "frozen_inference_graph.pb")
+    print("Loading model from:", MODEL_DIR)
+    return tf.saved_model.load(MODEL_DIR)
 
-    detection_graph = tf.Graph()
-    with detection_graph.as_default():
-        od_graph_def = tf.compat.v1.GraphDef()
-        with tf.io.gfile.GFile(PATH_TO_CKPT, 'rb') as fid:
-            serialized_graph = fid.read()
-            od_graph_def.ParseFromString(serialized_graph)
-            tf.import_graph_def(od_graph_def, name='')
-
-    return detection_graph
+def load_image_into_numpy_array(path):
+    return np.array(Image.open(path))
 
 # Detect Aadhaar Features
 def detect_features(img_path):
-    detection_graph = load_model()
+    detect_fn = load_model()
     category_index = label_map_util.create_category_index_from_labelmap(LABEL_PATH, use_display_name=True)
 
-    with detection_graph.as_default():
-        with tf.compat.v1.Session(graph=detection_graph) as sess:
-            image = cv2.imread(img_path)
-            image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-            image_expanded = np.expand_dims(image_rgb, axis=0)
+    image_np = load_image_into_numpy_array(img_path)
+    input_tensor = tf.convert_to_tensor(image_np)[tf.newaxis, ...]
 
-            image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
-            detection_boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
-            detection_scores = detection_graph.get_tensor_by_name('detection_scores:0')
-            detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
-            num_detections = detection_graph.get_tensor_by_name('num_detections:0')
+    detections = detect_fn(input_tensor)
 
-            (boxes, scores, classes, num) = sess.run(
-                [detection_boxes, detection_scores, detection_classes, num_detections],
-                feed_dict={image_tensor: image_expanded})
+    num_detections = int(detections.pop('num_detections'))
+    detections = {key: value[0, :num_detections].numpy() for key, value in detections.items()}
+    detections['num_detections'] = num_detections
+    detections['detection_classes'] = detections['detection_classes'].astype(np.int64)
 
-            vis_util.visualize_boxes_and_labels_on_image_array(
-                image,
-                np.squeeze(boxes),
-                np.squeeze(classes).astype(np.int32),
-                np.squeeze(scores),
-                category_index,
-                use_normalized_coordinates=True,
-                line_thickness=3,
-                min_score_thresh=0.5)
+    vis_util.visualize_boxes_and_labels_on_image_array(
+        image_np,
+        detections['detection_boxes'],
+        detections['detection_classes'],
+        detections['detection_scores'],
+        category_index,
+        use_normalized_coordinates=True,
+        line_thickness=3,
+        min_score_thresh=0.5)
 
-            return image, boxes, scores, classes
+    return image_np, detections['detection_boxes'], detections['detection_scores'], detections['detection_classes']
 
 # Run and visualize
 if __name__ == "__main__":
     img_path = "data/sample_aadhaar.jpg"
     output_img, _, _, _ = detect_features(img_path)
 
-    cv2.imshow("Detected Aadhaar Features", output_img)
+    cv2.imshow("Detected Aadhaar Features", cv2.cvtColor(output_img, cv2.COLOR_RGB2BGR))
     cv2.waitKey(0)
     cv2.destroyAllWindows()
-

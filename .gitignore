@@ -29,3 +29,10 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+*.pbtxt
+*.ckpt
+*.pb
+*.tfrecord
+models/research/inference_graph/
+models/research/exported-models/

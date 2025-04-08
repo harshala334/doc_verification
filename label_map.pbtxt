@@ -1,1 +1,16 @@
- 
+item {
+  id: 1
+  name: 'aadhaar_no'
+}
+item {
+  id: 2
+  name: 'name'
+}
+item {
+  id: 3
+  name: 'dob'
+}
+item {
+  id: 4
+  name: 'photo'
+}
