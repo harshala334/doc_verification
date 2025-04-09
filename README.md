@@ -13,3 +13,6 @@ export PYTHONPATH=$PYTHONPATH:/Users/apple/Downloads/doc_verification/models:/Us
     # cv2.destroyAllWindows()
 
     conda install -c conda-forge opencv
+
+
+/opt/anaconda3/envs/docenv/bin/python detect_aadhaar.py

@@ -45,7 +45,7 @@ def detect_features(img_path):
 
 # Run and visualize
 if __name__ == "__main__":
-    img_path = "data/sample_aadhaar.jpg"
+    img_path = "data/pan_card.jpg"
     output_img, _, _, _ = detect_features(img_path)
 
     cv2.imshow("Detected Aadhaar Features", cv2.cvtColor(output_img, cv2.COLOR_RGB2BGR))
