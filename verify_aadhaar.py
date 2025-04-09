@@ -1,6 +1,6 @@
-from detect_aadhaar import detect_features
+
 from extract_text import extract_text
-import cv2
+
 import re
 import json
 
@@ -52,12 +52,6 @@ def validate_text(text):
 # Main Pipeline
 if __name__ == "__main__":
     img_path = "data/sample_aadhaar.jpg"
-
-    print("\n🔍 Step 1: Detecting Aadhaar visual features...")
-    output_img, _, _, _ = detect_features(img_path)
-    cv2.imshow("Detected Aadhaar Features", output_img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
 
     print("\n📄 Step 2: Extracting text...")
     extracted_text = extract_text(img_path)
