@@ -1,13 +1,13 @@
 {
   "type": "service_account",
   "project_id": "docverification-455320",
-  "private_key_id": "aaaa7897a41eb435ec00517ec73a672a34171402",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQCwdjUe+NEt6R++\nXqtIAD27mhMXgUtL8SQ1dkBR4gswmIKByWbOT6XFj9d9s8Ui/d5DF/f3G59Hc/yl\nMwiHGpM+bcbhVaS1jG7qbq1QAyQnyAazc3shy9t4IJOUJOh3wG4cjCfN1QJ1oJxJ\nto1WaI7yL/HGuUHmVymTTw3R0J+JyXeJvQcaIF9UHcvUkNeEG3VdAXbGI3UscAGj\noVpU3JzISobP4SG7anOUQsVR5MSw7NwDiczvqcZHs8/WGRh8BrMS1u/2yWvOMEB/\nE1ifPrBSmHZm954hEir0MTVJFSciWRIzQ/oS3B1ozrPkNLZhVDyP2UQOWnWxr2mk\nSwkqpxLrAgMBAAECggEAR6jZTaiRmelP4MklGWovp52cHzF8WGym3acV26rGDIgC\nh544R5QEp8QQKJX2eo1J00lKg2kON8AcWyHsVqEuJm4CE8PpzWgoKr+jVhjQd+88\n+WbuG/1jNNdV1xVd6jOVA7bO+0GDbC07Cpw9rVdspWFe9+qHnnjLA21ZGVl1UEh3\n1z4IRVCMAqPQRXermp90/I+eNGjx9F4FtHzbkYDtAWGfgRlrEJU5GoMRlvQk/zWf\nYRP81iWBAjVMG7hFXdP9d+ceS5m7ALVnXOXaXoeKIYeK1FnmjZgQ8BfBRf239aY0\n+9vzli2rFxi0KtoLYGbFOY0UeBFcHKwHmlOVGzldIQKBgQD26a6abI/zJf7IF5YC\nl49YdZfrwXBZh7ucu5t86c0rLmHdQYIY/DNOIzfjiEbX9RWMfngeyGa+G/x3m4XN\niKk0oQZcPUm0O3nFPKLTVyXXXGLQytnJ9v4ttMkWTecQk4pWBr+u2wvuK6Tn13kt\nVgpyHV2aPhwr0bmU9fn+K1NlYwKBgQC29MMwfROX/i6H6P81KzvWJXzK/AMicOWf\nnaS2ZmtRzD+l5Ns7q35jN6J59btvsWh5kTvLBz8dkPGORx1pP+GDBjYEYBmE4HMb\n/XWqCrC0tQPf8MG1Y3CYiQYcCkqjRUdBR+wC3NgKaPhczPnOeEA2wQdjgbwVhygF\nI1R0GyP22QKBgQDpW3PUqPPnlqpUi84QBxPIQ+NgQoMfaqQK/lh21zU8MWr2xLnj\nSUBoAesJVTu3UP+bt89pMHfCBws2M7tixF0+y00KkjX9bBSrL6Kn4P53qu4NbRom\nwhP6OJmwRdIzHW4p3dj9tjJxV7hUEZaKHX5j2ZMkerz/QQiHW255JJN+BwKBgQCS\nq5gLOEpL8EbnR//IZRd8LuNjazMsGivLkTqpy2O/2Kkx2k1zAaG58rD7audPvH7P\n7oFr2yxbDIbKE/LdHIwyWPlW+p+aqcE+MCxzHEzbIb6webchLk3myvqt4gZB69ka\n2Yi4Jsm/VrW818pwHnEENC0zNZ9N9uM7cz5SMivbyQKBgQCeI5jD4u21EzEb2Gw3\nZfUzSor/v7ADwBtStTDKM5BDlPl58itHYOK7vhx/e20HrZV6h4Mm4XSyZEOTD5nD\nbB4eKJY4iUoFRcNPpo14Tqj78EHlXFIyTXLSbkFnJXLKQeeqkvGBfqwIsxYA4oE+\npvBKXzPYcF8MHO0A5Qu0+pVbdQ==\n-----END PRIVATE KEY-----\n",
-  "client_email": "vision-api-sa@docverification-455320.iam.gserviceaccount.com",
-  "client_id": "115250392254740677524",
+  "private_key_id": "REDACTED",
+  "private_key": "REDACTED",
+  "client_email": "REDACTED",
+  "client_id": "REDACTED",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vision-api-sa%40docverification-455320.iam.gserviceaccount.com",
+  "client_x509_cert_url": "REDACTED",
   "universe_domain": "googleapis.com"
 }
